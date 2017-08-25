@@ -5,6 +5,10 @@ puts "Enter an option:"
 puts "A) List all Fridges"
 puts "B) Add a fridge"
 puts "C) Delete a fridge"
+puts "D) List all food from inside a fridge"
+puts "E) Add a food item to a fridge"
+puts "F) Eat a food item"
+puts "G) View drink items from a fridge"
 option = gets.chomp
 puts "You selected #{option}"
 
@@ -36,6 +40,41 @@ if option.upcase == 'C'
     end
     input = gets.chomp
     Fridge.find_by(location: input).delete
+end
+
+if option.upcase == 'D'
+    Food.all.map do |food|
+        puts "This food is #{food.name.to_s}"
+        puts "This food weighs #{food.weight.to_i} lb"
+        puts "It's #{food.vegan.to_s} that this is vegan"
+    end
+end
+
+if option.upcase == 'E'
+    puts "Food name"
+    name = gets.chomp
+    puts "Food weight"
+    weight = gets.chomp
+    puts "Vegan? Enter true or false"
+    vegan = gets.chomp
+
+    Food.create(name: "#{name}", weight: "#{weight.to_i}", vegan: "#{vegan}")
+end
+
+# if option.upcase == 'F'
+#     "Select a food item to delete"
+#     Food.all.map do |food|
+#         puts food.name.to_s
+#     end
+#     name = gets.chomp
+#     Food.find_by(name: name).delete
+# end
+
+if option.upcase == 'G'
+    puts "View all drinks"
+    Drink.all.map do |drink|
+        puts drink.name.to_s
+    end
 end
 
 

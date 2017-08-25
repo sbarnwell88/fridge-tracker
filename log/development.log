@@ -247,3 +247,15 @@ FOREIGN KEY ("fridge_id")
   [1m[36mFridge Load (0.4ms)[0m  [1m[34mSELECT  "fridges".* FROM "fridges" WHERE "fridges"."location" = $1 LIMIT $2[0m  [["location", "decatur"], ["LIMIT", 1]]
   [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "fridges" WHERE "fridges"."id" = $1[0m  [["id", 4]]
   [1m[36mFridge Load (0.3ms)[0m  [1m[34mSELECT  "fridges".* FROM "fridges" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mFood Load (0.5ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  [1m[36mFood Load (0.5ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  [1m[36mFood Load (0.6ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  [1m[36mFood Load (0.5ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  [1m[36mFood Load (0.4ms)[0m  [1m[34mSELECT  "foods".* FROM "foods" WHERE "foods"."name" = $1 LIMIT $2[0m  [["name", "Steak"], ["LIMIT", 1]]
+  [1m[35mSQL (1.9ms)[0m  [1m[31mDELETE FROM "foods" WHERE "foods"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "foods" ("name", "weight", "vegan", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "pizza"], ["weight", 1], ["vegan", "f"], ["created_at", "2017-08-25 01:40:08.000003"], ["updated_at", "2017-08-25 01:40:08.000003"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFood Load (0.3ms)[0m  [1m[34mSELECT  "foods".* FROM "foods" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mFridge Load (0.3ms)[0m  [1m[34mSELECT  "fridges".* FROM "fridges" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mDrink Load (0.5ms)[0m  [1m[34mSELECT "drinks".* FROM "drinks"[0m
