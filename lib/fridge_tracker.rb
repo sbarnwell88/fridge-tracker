@@ -4,6 +4,7 @@ require_relative '../app/models/fridge'
 puts "Enter an option:"
 puts "A) List all Fridges"
 puts "B) Add a fridge"
+puts "C) Delete a fridge"
 option = gets.chomp
 puts "You selected #{option}"
 
@@ -18,7 +19,27 @@ if option.upcase == 'A'
 end
 
 if option.upcase == 'B'
-    puts "You want to add a fridge"
+  puts "location?"
+  location = gets.chomp
+  puts "brand?"
+  brand = gets.chomp
+  puts "size?"
+  size = gets.chomp
+ 
+  Fridge.create(location: "#{location}", brand: "#{brand}", size_cubic_ft: size.to_i, has_food: false, has_drink: false)
 end
+
+if option.upcase == 'C'
+    puts "Select a location to delete that fridge"
+    Fridge.all.map do |fridge|
+        puts fridge.location.to_s
+    end
+    input = gets.chomp
+    Fridge.find_by(location: input).delete
+end
+
+
+
+
 
     
