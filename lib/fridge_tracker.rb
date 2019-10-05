@@ -43,11 +43,11 @@ if option.upcase == 'C'
 end
 
 if option.upcase == 'D'
-    Food.all.map do |food|
-        puts "This food is #{food.name.to_s}"
-        puts "This food weighs #{food.weight.to_i} lb"
-        puts "It's #{food.vegan.to_s} that this is vegan"
-    end
+    puts "Pick a fridge to look through: "
+    Fridge.all.map{|fridge| puts fridge.map}
+    puts "Which brand would you like to look through?"
+    brand = gets.chomp
+    Fridge.find_by(brand: brand).foods.map{|food| puts food.name}
 end
 
 if option.upcase == 'E'
